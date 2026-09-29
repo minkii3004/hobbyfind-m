@@ -7,7 +7,9 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
+import { useEffect } from 'react';
 import { ThemeProvider } from 'next-themes';
+import { useFavoriteHobbiesStore } from '@/features/hobby/hooks/use-favorite-hobbies-store';
 
 function makeQueryClient() {
   return new QueryClient({
@@ -44,11 +46,14 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   //       render if it suspends and there is no boundary
   const queryClient = getQueryClient();
 
+  useEffect(() => {
+    useFavoriteHobbiesStore.persist.rehydrate();
+  }, []);
+
   return (
     <ThemeProvider
       attribute="class"
-      defaultTheme="system"
-      enableSystem
+      forcedTheme="light"
       disableTransitionOnChange
     >
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>

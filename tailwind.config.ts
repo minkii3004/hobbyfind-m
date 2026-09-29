@@ -13,7 +13,33 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: [
+          'Pretendard',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'sans-serif',
+        ],
+      },
       colors: {
+        brand: {
+          50: '#FFF1F3',
+          500: '#FF5A6F',
+          600: '#E9485D',
+        },
+        ink: {
+          500: '#717171',
+          700: '#484848',
+          950: '#222222',
+        },
+        line: {
+          200: '#DDDDDD',
+        },
+        surface: {
+          0: '#FFFFFF',
+          100: '#F7F7F7',
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
